@@ -15,17 +15,16 @@ services:
       - DATABASE_HOST=db
       - DATABASE_NAME=django_db
       - DATABASE_USER=root
-      - DATABASE_PASSWORD=Fairy1024
+      - DATABASE_PASSWORD=Test1234
     stdin_open: true
     tty: true
-    command: python manage.py runserver 0.0.0.0:8000
 
   db:
     image: mysql:8.0
     container_name: my_mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Fairy1024
+      MYSQL_ROOT_PASSWORD: Test1234
       MYSQL_DATABASE: django_db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin123
@@ -42,7 +41,7 @@ services:
       - db
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: Fairy1024
+      MYSQL_ROOT_PASSWORD: Test1234
     ports:
       - '8080:80'
 

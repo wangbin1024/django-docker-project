@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 
 # 设置工作目录
-WORKDIR /app/first_project
+WORKDIR /app/django_project
 
 # 安装系统依赖
 RUN apt-get update && apt-get install -y \
@@ -22,4 +22,4 @@ COPY . /app/
 EXPOSE 8000
 
 # 启动 Django 服务器
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
