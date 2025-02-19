@@ -1,0 +1,19 @@
+# Python 相关
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+
+# Django 相关
+db.sqlite3
+media/
+static/
+
+# VS Code 相关
+.vscode/
+
+# Docker 相关
+*.log
+.env
