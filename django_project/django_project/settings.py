@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the django_project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = BASE_DIR / "templates"
+STATIC_DIR = BASE_DIR / "static"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangodjango_project.com/en/5.1/howto/deployment/checklist/
@@ -126,3 +127,5 @@ STATIC_URL = "static/"
 # https://docs.djangodjango_project.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATICFILES_DIRS = [STATIC_DIR]

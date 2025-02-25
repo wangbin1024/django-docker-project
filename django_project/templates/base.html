@@ -3,18 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{% block title %}base page{% endblock %}</title>
   </head>
   <body>
-    <div>My name is {{ name }}</div>
-    <div>
-      {% for i in param %}
-      <p>{{ i }}</p>
-      {% endfor %} {% if value.age == 20 %}
-      <p>成人</p>
-      {% else %}
-      <p>未成年</p>
-      {% endif %}
-    </div>
+    <div>{%block content%}{%endblock%}</div>
   </body>
 </html>

@@ -1,9 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <html>
   <head>
-    <title>Polls Index</title>
+    <title>Index Page</title>
   </head>
   <body>
-    <h1>Welcome to the Polls Index</h1>
+    <h1>Welcome to the Index</h1>
+    <a href="{% url 'app:page' 'Index Index' %}">Go to Page</a>
+    <img src="{% static 'images/IMG.JPG' %}" alt="Django logo" />
   </body>
 </html>
