@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<html>
+  <head>
+    <title>ADD TODO</title>
+  </head>
+  <body>
+    <h1>タスクの更新</h1>
+    <a href="{% url 'app:task_list' %}">戻る</a>
+    <form action="" method="post">{{ form.as_p }}
+      {% csrf_token %}
+      <input type="submit" value="更新" />
+    </form>
+  </body>
+</html>

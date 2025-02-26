@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<html>
+  <head>
+    <title>TODO LIST</title>
+  </head>
+  <body>
+    {% if request.user.is_authenticated %}
+      <p>ようこそ、{{ request.user }}さん</p>
+    {% else %}
+      <p>ようこそ、ゲストさん</p>
+    {% endif %}
+    <h1>TODOリスト</h1>
+    <a href="{% url 'app:create' %}">タスクを追加する</a>
+    <table>
+      <tr>
+       <th>タスク</th>
+      </tr>
+      {% for task in tasks %}
+        <tr>
+          <td>{{ task.title }}</td>
+          <td><a href="{% url 'app:task_detail' task.pk %}">確認</a></td>
+          <td><a href="{% url 'app:update' task.pk %}">編集</a></td>
+          <td><a href="{% url 'app:delete' task.pk %}">削除</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
