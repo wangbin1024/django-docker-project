@@ -11,6 +11,7 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+
 class Task(BaseModel):
     # User：ユーザーモデルを外部キーとして持つ　on_delete=models.CASCADE：ユーザーが削除されたらタスクも削除　null=True：nullを許可　blank=True：空白を許可
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -30,5 +31,9 @@ class Task(BaseModel):
         ordering = ["-created_at"]
 
     def __str__(self):
-        completed = "completed" if self.completed else "not completed"
-        return self.title + " (" + completed + ")"
+        msg = self.title
+        if self.completed:
+            msg += " (completed)"
+        if self.deleted_at:
+            msg += " (deleted)"
+        return msg

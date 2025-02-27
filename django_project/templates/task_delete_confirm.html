@@ -1,17 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<html>
-  <head>
-    <title>TODO DELETE CONFIRM</title>
-  </head>
-  <body>
-    <h1>タスク：{{ task }}</h1>
-    <form action="" method="post">
-      {% csrf_token %}
-      <p>このタスクを削除しますか？</p>
-      <input type="submit" value="削除" />
-      <a href="{% url 'app:task_list' %}">戻る</a>
-    </form>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}TODO DELETE CONFIRM{% endblock title %}
+{% block content %}
+  <h1>タスク：{{ task.title }}</h1>
+  <a href="{% url 'app:task_list' %}" class="btn btn-back">戻る</a>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>このタスクを削除しますか？</p>
+    <input type="submit" value="削除"  class="btn btn-delete" />
+  </form>
+{% endblock content %}

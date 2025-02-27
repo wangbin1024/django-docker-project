@@ -1,30 +1,45 @@
-{% load static %}
-<!DOCTYPE html>
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<html>
-  <head>
-    <title>TODO LIST</title>
-  </head>
-  <body>
-    {% if request.user.is_authenticated %}
-      <p>ようこそ、{{ request.user }}さん</p>
-    {% else %}
-      <p>ようこそ、ゲストさん</p>
-    {% endif %}
-    <h1>TODOリスト</h1>
-    <a href="{% url 'app:create' %}">タスクを追加する</a>
-    <table>
-      <tr>
-       <th>タスク</th>
-      </tr>
+{% extends "base.html" %}
+{% block title %}TODO LIST{% endblock title %}
+{% block content %}
+<div class="container">
+  <h1 class="title">TODOリスト</h1>
+  {% if request.user.is_authenticated %}
+    <p class="welcome-text">ようこそ、<span class="username">{{ request.user }}</span>さん</p>
+    <form action="{% url 'app:logout' %}" method="post" class="logout-form">
+      {% csrf_token %}
+      <button type="submit" class="btn logout-btn">ログアウト</button>
+    </form>
+    <form method="GET" action="{% url 'app:search' %}" class="search-form">
+      <input type="text" name="search" value="{{ request.GET.search }}" class="search-input">
+      <button type="submit" class="btn search-btn">検索</button>
+    </form>
+    <a href="{% url 'app:create' %}" class="add-task">タスクを追加する</a>
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>タスク</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
       {% for task in tasks %}
         <tr>
-          <td>{{ task.title }}</td>
-          <td><a href="{% url 'app:task_detail' task.pk %}">確認</a></td>
-          <td><a href="{% url 'app:update' task.pk %}">編集</a></td>
-          <td><a href="{% url 'app:delete' task.pk %}">削除</a></td>
+          <td class="task-title {% if task.completed %}completed{% endif %}">{{ task.title }}</td>
+          <td class="task-actions">
+            <a href="{% url 'app:task_detail' task.pk %}" class="btn btn-view">確認</a>
+            <a href="{% url 'app:update' task.pk %}" class="btn btn-edit">編集</a>
+            <a href="{% url 'app:delete' task.pk %}" class="btn btn-delete">削除</a>
+          </td>
         </tr>
       {% endfor %}
+      </tbody>
     </table>
-  </body>
-</html>
+  {% else %}
+    <p class="guest-text">ようこそ、ゲストさん</p>
+    <form action="{% url 'app:login' %}" method="post" class="login-form">
+      {% csrf_token %}
+      <button type="submit" class="btn login-btn">ログイン</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock content %}

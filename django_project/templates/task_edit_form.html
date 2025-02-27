@@ -1,16 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<html>
-  <head>
-    <title>ADD TODO</title>
-  </head>
-  <body>
-    <h1>タスクの更新</h1>
-    <a href="{% url 'app:task_list' %}">戻る</a>
-    <form action="" method="post">{{ form.as_p }}
-      {% csrf_token %}
-      <input type="submit" value="更新" />
-    </form>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}UPDATE TODO{% endblock title %}
+{% block content %}
+  <h1>タスクの更新</h1>
+  <a href="{% url 'app:task_list' %}" class="btn btn-back">戻る</a>
+  <form action="" method="post">{{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="更新" class="btn btn-view" />
+  </form>
+{% endblock content %}

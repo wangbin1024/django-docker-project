@@ -1,11 +1,24 @@
-{% load static %}
-<!DOCTYPE html>
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<html>
-  <head>
-    <title>TODO DETAIL</title>
-  </head>
-  <body>
-    <h1>タスク：{{ task }}</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}TODO DETAIL{% endblock title %}
+{% block content %}
+<div class="task-detail-container">
+  <h1 class="task-title">タスク：{{ task.title }}</h1>
+  
+  <p class="task-description">内容：{{ task.description }}</p>
+  <p class="task-status">済み：
+    {% if task.completed %}
+      ✅
+    {% else %}
+      ❌
+    {% endif %}
+  </p>
+  
+  <p class="task-created">作成日：{{ task.created_at|date:"Y-m-d H:i" }}</p>
+
+  <div class="task-buttons">
+    <a href="{% url 'app:task_list' %}" class="btn btn-back">戻る</a>
+    <a href="{% url 'app:update' task.pk %}" class="btn btn-edit">編集</a>
+    <a href="{% url 'app:delete' task.pk %}" class="btn btn-delete">削除</a>
+  </div>
+</div>
+{% endblock content %}

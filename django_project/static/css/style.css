@@ -1,0 +1,226 @@
+body {
+  background: linear-gradient(to right, #f0f2f5, #e9ecef);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type='text'],
+input[type='password'],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+button,
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #0056b3;
+  opacity: 0.9;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.todoAppWrapper {
+  margin: 50px auto;
+  max-width: 450px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.username {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 按钮样式 */
+.btn {
+  width: auto;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.btn.login-btn,
+.btn.logout-btn {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 10px auto;
+  background-color: #007bff;
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.btn.search-btn {
+  background-color: #007bff;
+}
+
+.btn.logout-btn:hover,
+.btn.search-btn:hover,
+.btn.login-btn:hover {
+  background-color: #0056b3;
+  opacity: 0.9;
+}
+
+.btn-view {
+  background-color: #28a745;
+}
+
+.btn-view:hover {
+  background-color: #218838;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-back {
+  background-color: #6c757d;
+}
+
+.btn-back:hover {
+  background-color: #5a6268;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.task-table th,
+.task-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.task-table tr:hover {
+  background: #f1f1f1;
+}
+
+.task-title {
+  font-weight: bold;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.task-actions .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #646464;
+  opacity: 0.7;
+}

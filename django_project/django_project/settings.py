@@ -117,6 +117,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = "app:login"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangodjango_project.com/en/5.1/howto/static-files/
